@@ -6,37 +6,79 @@
 /*   By: krochefo <krochefo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 09:22:45 by krochefo          #+#    #+#             */
-/*   Updated: 2022/05/25 10:24:13 by krochefo         ###   ########.fr       */
+/*   Updated: 2022/05/26 08:46:02 by krochefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_concatstr(char *str1, char *str2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
+	int		joined_len;
+	char	*rtn;
 	int		i;
 	int		j;
-	char	*str3;
 
-	if (str1 == NULL || str2 == NULL)
-		return (NULL);
 	i = 0;
-	j = 0;
-	str3 = malloc((ft_strlen(str1) + ft_strlen(str2) + 1) * sizeof(char));
-	str3 = str1;
-	while (str3[i])
-		i++;
-	while (str2[j])
+	joined_len = ft_strlen(s1) + ft_strlen(s2);
+	rtn = malloc(sizeof(char) * (joined_len + 1));
+	if (!rtn || !s1 || !s2)
+		return (NULL);
+	while (s1[i] != 0)
 	{
-		str3[i] = str2[j];
+		rtn[i] = s1[i];
+		i++;
+	}
+	j = 0;
+	while (s2[j] != 0)
+	{
+		rtn[i] = s2[j];
 		i++;
 		j++;
 	}
-	str3[i] = '\0';
-	return (str3);
+	rtn[joined_len] = 0;
+	return (rtn);
 }
 
-int	ft_strlen(char *str)
+char	*ft_strchr(const char *string, int str_char)
+{
+	char	*str;
+
+	str = (char *)string;
+	while (*str != str_char && *str != 0)
+		str++;
+	if (*str == str_char)
+		return (str);
+	else
+		return (NULL);
+}
+
+void	ft_bzero(void *s, size_t n)
+{
+	char	*str;
+	size_t	i;
+
+	str = (char *)s;
+	i = 0;
+	while (i < n)
+	{
+		str[i] = '\0';
+		i++;
+	}
+}
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	char	*rtn;
+
+	rtn = malloc(size * count);
+	if (!rtn)
+		return (NULL);
+	ft_bzero(rtn, size * count);
+	return (rtn);
+}
+
+size_t	ft_strlen(const char *str)
 {
 	int	i;
 
@@ -44,32 +86,4 @@ int	ft_strlen(char *str)
 	while (str[i])
 		i++;
 	return (i);
-}
-
-char	*ft_buffcut(char *str, int input, int len)
-{
-	int		i;
-	int		j;
-	char	*temp;
-	char	*temp2;
-
-	temp = NULL;
-	temp2 = NULL;
-	i = 0;
-	j = 0;
-	while (str[i] != '\n')
-	{
-		temp[i] = str[i];
-		i++;
-	}
-	while (i <= len)
-	{
-		temp2[j] = str[i];
-		j++;
-		i++;
-	}
-	if (input == 1)
-		return (temp);
-	else
-		return (temp2);
 }

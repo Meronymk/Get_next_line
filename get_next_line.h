@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: krochefo <krochefo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/28 11:39:33 by nadesjar          #+#    #+#             */
-/*   Updated: 2022/05/25 15:08:56 by krochefo         ###   ########.fr       */
+/*   Created: 2022/04/28 11:39:33 by krochefo          #+#    #+#             */
+/*   Updated: 2022/05/26 08:40:33 by krochefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,12 @@
 # endif
 
 char	*get_next_line(int fd);
-char	*ft_concatstr(char *str1, char *str2);
-int		ft_strlen(char *str);
-char	*ft_buffcut(char *str, int input, int len);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strchr(const char *string, int str_char);
+
+void	ft_bzero(void *s, size_t n);
+void	*ft_calloc(size_t count, size_t size);
+
+size_t	ft_strlen(const char *str);
 
 #endif

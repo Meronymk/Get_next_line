@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: krochefo <krochefo@student.42quebec.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/04/02 23:33:38 by root              #+#    #+#              #
-#    Updated: 2022/05/25 15:22:31 by krochefo         ###   ########.fr        #
+#    Created: 2022/04/02 23:33:38 by krochefo          #+#    #+#              #
+#    Updated: 2022/05/25 15:42:30 by krochefo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ COMMIT = $(shell date "+%d %B %T")
 # J'imprime un tiret (sans newline) pour créer ma ligne de progression.
 OBJS= $(SRCS:%.c=%.o)
 %.o: %.c
-	@printf "."
+	@printf ".."
 	@$(CC) $(CFLAGS) -o $@ -c $<
 
 # On appel la commande INIT et NAME puis on imprime le message final.
