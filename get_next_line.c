@@ -6,7 +6,7 @@
 /*   By: krochefo <krochefo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 09:22:13 by krochefo          #+#    #+#             */
-/*   Updated: 2022/05/26 08:47:27 by krochefo         ###   ########.fr       */
+/*   Updated: 2022/05/31 12:35:42 by krochefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ char	*get_next_line(int fd)
 	static char	*buffer;
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || BUFFER_SIZE == NULL || read(fd, 0, 0) < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 		return (NULL);
 	buffer = ft_read_fd(fd, buffer);
 	if (!buffer)
